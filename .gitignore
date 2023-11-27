@@ -1,0 +1,63 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## macOS
+*.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+## Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+# Xcode
+.DS_Store
+*/build/
+*/DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.xcworkspace/
+*.xcuserstate
+
+## Swift
+*.swiftpm
+*.playground
+*.xcplayground
+*.timeline
+*.xcworkspace
+DerivedData/
+.build/
+# .swiftpm/ - This directory is used by SPM package collections.
+# Package directory is added by `swift package init --package-name`.
+# .build/ - Build directory
+#
+# Add this line if you want to avoid checking in source code from the Xcode build directory.
+# build/
+#
+# Add this line if you want to avoid checking in Xcode xcuserdata
+# ***.xcuserdatad
+#
+# Xcode noise
+#
+# swift package management
+.Package.resolved
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
+#
+# Pods/
+#
+# Add this line if you want to avoid checking in source code from the Pods directory.
+# Pods/**/*.codeproj
+
