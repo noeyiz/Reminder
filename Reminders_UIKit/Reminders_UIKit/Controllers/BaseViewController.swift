@@ -15,11 +15,10 @@ class BaseViewController<BaseView: UIView>: UIViewController {
     
     let baseView = BaseView()
     
-    // MAKR: Initializer
+    // MAKR: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         view.addSubview(baseView)
         baseView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(self.navigationController?.navigationBar.frame.maxY ?? 0)

@@ -10,6 +10,10 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+protocol ReminderCellDelegate {
+    func didTapDetailsButton(reminderRelay: BehaviorRelay<Reminder>)
+}
+
 class MainViewController: BaseViewController<MainView> {
     
     // MARK: Properties
@@ -18,7 +22,7 @@ class MainViewController: BaseViewController<MainView> {
     
     let reminderManager = ReminderManager.instance
     
-    // MARK: Initializer
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +36,29 @@ class MainViewController: BaseViewController<MainView> {
         self.navigationItem.title = "미리 알림"
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationItem.rightBarButtonItem = self.baseView.menuButton
+        self.view.backgroundColor = .systemBackground
     }
     
     private func bind() {
-        self.baseView.remindersTableView.delegate = self
-        self.baseView.remindersTableView.dataSource = self
+        baseView.remindersTableView.delegate = self
+        baseView.remindersTableView.dataSource = self
         
-        self.baseView.menuButton.rx.tap
-            .subscribe(onNext: {
+        baseView.menuButton.rx.tap
+            .subscribe(onNext: { [weak self] in
                 print("menu button tap")
-                for reminder in self.reminderManager.reminders.value {
+                for reminder in self!.reminderManager.reminders.value {
                     print("\(reminder.value)\n")
                 }
                 print("\n\n")
             }).disposed(by: disposeBag)
         
-        self.baseView.addReminderButton.rx.tap
-            .subscribe(onNext: {
-                print("add reminder button tap")
-                self.reminderManager.addReminder()
-                self.baseView.remindersTableView.reloadData()
+        baseView.addReminderButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.reminderManager.addReminder()
+                self?.baseView.remindersTableView.reloadData()
+                guard let inputCell = self?.baseView.remindersTableView.visibleCells.last as? ReminderCell
+                else { return }
+                inputCell.titleTextView.becomeFirstResponder()
             }).disposed(by: disposeBag)
     }
     
@@ -68,7 +75,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 as? ReminderCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.bind(reminderRelay: reminderManager.reminders.value[indexPath.row])
-        cell.titleTextView.delegate = self
+        cell.delegate = self
         return cell
     }
     
@@ -81,19 +88,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension MainViewController: UITextViewDelegate {
+extension MainViewController: ReminderCellDelegate {
     
-    // 🐥 텍스트 뷰 내용에 따른 동적 높이 설정
-    func textViewDidChange(_ textView: UITextView) {
-        let tableView = self.baseView.remindersTableView
-        
-        let contentSize = textView.sizeThatFits(CGSize(width: textView.bounds.width, height: .infinity))
-        
-        if textView.bounds.height != contentSize.height {
-            tableView.contentOffset.y += contentSize.height - textView.bounds.height
-            tableView.beginUpdates()
-            tableView.endUpdates()
-        }
+    func didTapDetailsButton(reminderRelay: BehaviorRelay<Reminder>) {
+        let detailsViewController = DetailsViewController()
+        detailsViewController.reminder = reminderRelay
+        present(UINavigationController(rootViewController: detailsViewController), animated: true)
     }
     
 }

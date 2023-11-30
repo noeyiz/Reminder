@@ -22,6 +22,15 @@ extension Reminder {
         case low
         case middle
         case high
+        
+        func toString() -> String {
+            switch (self) {
+            case .none: return ""
+            case .low: return "!"
+            case .middle: return "!!"
+            case .high: return "!!!"
+            }
+        }
     }
     
 }
