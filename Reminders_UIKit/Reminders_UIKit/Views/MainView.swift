@@ -36,7 +36,8 @@ class MainView: UIView {
     }
     
     let remindersTableView = UITableView().then {
-        $0.backgroundColor = .systemGroupedBackground
+        $0.register(ReminderCell.self, forCellReuseIdentifier: "ReminderCell")
+        $0.rowHeight = UITableView.automaticDimension
     }
     
     // MARK: Initializer
@@ -44,6 +45,12 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
+        self.addGestureRecognizer( // 테이블 뷰 스크롤을 위해 터치가 막혀있어서 제스처 사용
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(hideKeyboard(_:))
+            )
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -69,6 +76,12 @@ class MainView: UIView {
             $0.left.top.right.equalToSuperview()
             $0.bottom.equalTo(self.addReminderButton.snp.top)//.offset(-10)
         }
+    }
+    
+    // MARK: Functions
+    
+    @objc private func hideKeyboard(_ sender: Any) {
+        self.endEditing(true)
     }
     
 }
