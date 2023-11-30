@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131C3FA348A1D55444BE3136 /* Pods_Reminders_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8A7727B1DC7DF3D8556E01 /* Pods_Reminders_UIKit.framework */; };
 		90B941722B14FFB6006CAE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941712B14FFB6006CAE0F /* AppDelegate.swift */; };
 		90B941742B14FFB6006CAE0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941732B14FFB6006CAE0F /* SceneDelegate.swift */; };
 		90B941762B14FFB6006CAE0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941752B14FFB6006CAE0F /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D8A7727B1DC7DF3D8556E01 /* Pods_Reminders_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reminders_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B9416E2B14FFB6006CAE0F /* Reminders_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B941712B14FFB6006CAE0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90B941732B14FFB6006CAE0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		90B9417A2B14FFB9006CAE0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90B9417D2B14FFB9006CAE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90B9417F2B14FFB9006CAE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB29405ED459DD5CD6A336DE /* Pods-Reminders_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reminders_UIKit.release.xcconfig"; path = "Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit.release.xcconfig"; sourceTree = "<group>"; };
+		F74C1CBC17539DE6E70D4447 /* Pods-Reminders_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reminders_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131C3FA348A1D55444BE3136 /* Pods_Reminders_UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CC3E12750316039ED7D3137 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F74C1CBC17539DE6E70D4447 /* Pods-Reminders_UIKit.debug.xcconfig */,
+				AB29405ED459DD5CD6A336DE /* Pods-Reminders_UIKit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		90B941652B14FFB6006CAE0F = {
 			isa = PBXGroup;
 			children = (
 				90B941702B14FFB6006CAE0F /* Reminders_UIKit */,
 				90B9416F2B14FFB6006CAE0F /* Products */,
+				3CC3E12750316039ED7D3137 /* Pods */,
+				C7443B86F28ED0273A09969E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = Reminders_UIKit;
 			sourceTree = "<group>";
 		};
+		C7443B86F28ED0273A09969E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D8A7727B1DC7DF3D8556E01 /* Pods_Reminders_UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90B941822B14FFB9006CAE0F /* Build configuration list for PBXNativeTarget "Reminders_UIKit" */;
 			buildPhases = (
+				183925316B0B8A93E1BD7204 /* [CP] Check Pods Manifest.lock */,
 				90B9416A2B14FFB6006CAE0F /* Sources */,
 				90B9416B2B14FFB6006CAE0F /* Frameworks */,
 				90B9416C2B14FFB6006CAE0F /* Resources */,
+				5B7ED0CF96C22C53AB3DEDD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +154,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		183925316B0B8A93E1BD7204 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reminders_UIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B7ED0CF96C22C53AB3DEDD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90B9416A2B14FFB6006CAE0F /* Sources */ = {
@@ -191,7 +259,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -254,7 +322,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -275,6 +343,7 @@
 		};
 		90B941832B14FFB9006CAE0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F74C1CBC17539DE6E70D4447 /* Pods-Reminders_UIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -287,6 +356,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +372,7 @@
 		};
 		90B941842B14FFB9006CAE0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB29405ED459DD5CD6A336DE /* Pods-Reminders_UIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +385,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
