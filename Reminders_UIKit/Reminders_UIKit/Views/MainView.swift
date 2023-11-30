@@ -19,9 +19,7 @@ class MainView: UIView {
         style: .plain,
         target: nil,
         action: nil
-    ).then {
-        $0.tintColor = .reminders
-    }
+    )
     
     let addReminderButton = UIButton().then {
         $0.configuration = UIButton.Configuration.plain()

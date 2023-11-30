@@ -92,7 +92,7 @@ extension MainViewController: ReminderCellDelegate {
     
     func didTapDetailsButton(reminderRelay: BehaviorRelay<Reminder>) {
         let detailsViewController = DetailsViewController()
-        detailsViewController.reminder = reminderRelay
+        detailsViewController.bind(reminderRelay: reminderRelay)
         present(UINavigationController(rootViewController: detailsViewController), animated: true)
     }
     
