@@ -11,6 +11,7 @@
 		9064DFCE2B1845AD00DC7CF3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFCD2B1845AD00DC7CF3 /* BaseViewController.swift */; };
 		9064DFD02B1847EE00DC7CF3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFCF2B1847EE00DC7CF3 /* MainView.swift */; };
 		9064DFD22B1849A800DC7CF3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFD12B1849A800DC7CF3 /* UIColor+Extension.swift */; };
+		9064DFD42B184FE800DC7CF3 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFD32B184FE800DC7CF3 /* Reminder.swift */; };
 		90B941722B14FFB6006CAE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941712B14FFB6006CAE0F /* AppDelegate.swift */; };
 		90B941742B14FFB6006CAE0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941732B14FFB6006CAE0F /* SceneDelegate.swift */; };
 		90B941762B14FFB6006CAE0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941752B14FFB6006CAE0F /* MainViewController.swift */; };
@@ -22,6 +23,7 @@
 		9064DFCD2B1845AD00DC7CF3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9064DFCF2B1847EE00DC7CF3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9064DFD12B1849A800DC7CF3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9064DFD32B184FE800DC7CF3 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		90B9416E2B14FFB6006CAE0F /* Reminders_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B941712B14FFB6006CAE0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90B941732B14FFB6006CAE0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		9064DFCC2B1844F600DC7CF3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9064DFD32B184FE800DC7CF3 /* Reminder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90B941762B14FFB6006CAE0F /* MainViewController.swift in Sources */,
+				9064DFD42B184FE800DC7CF3 /* Reminder.swift in Sources */,
 				9064DFCE2B1845AD00DC7CF3 /* BaseViewController.swift in Sources */,
 				90B941722B14FFB6006CAE0F /* AppDelegate.swift in Sources */,
 				9064DFD22B1849A800DC7CF3 /* UIColor+Extension.swift in Sources */,
