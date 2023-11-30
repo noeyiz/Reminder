@@ -28,6 +28,7 @@ class MainViewController: BaseViewController<MainView> {
     
     private func configureNavigationItem() {
         self.navigationItem.title = "미리 알림"
+        self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationItem.rightBarButtonItem = self.baseView.menuButton
     }
     
