@@ -8,21 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		131C3FA348A1D55444BE3136 /* Pods_Reminders_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8A7727B1DC7DF3D8556E01 /* Pods_Reminders_UIKit.framework */; };
+		9064DFCE2B1845AD00DC7CF3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFCD2B1845AD00DC7CF3 /* BaseViewController.swift */; };
+		9064DFD02B1847EE00DC7CF3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFCF2B1847EE00DC7CF3 /* MainView.swift */; };
+		9064DFD22B1849A800DC7CF3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064DFD12B1849A800DC7CF3 /* UIColor+Extension.swift */; };
 		90B941722B14FFB6006CAE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941712B14FFB6006CAE0F /* AppDelegate.swift */; };
 		90B941742B14FFB6006CAE0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941732B14FFB6006CAE0F /* SceneDelegate.swift */; };
-		90B941762B14FFB6006CAE0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941752B14FFB6006CAE0F /* ViewController.swift */; };
+		90B941762B14FFB6006CAE0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B941752B14FFB6006CAE0F /* MainViewController.swift */; };
 		90B9417B2B14FFB9006CAE0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90B9417A2B14FFB9006CAE0F /* Assets.xcassets */; };
-		90B9417E2B14FFB9006CAE0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90B9417C2B14FFB9006CAE0F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D8A7727B1DC7DF3D8556E01 /* Pods_Reminders_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reminders_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9064DFCD2B1845AD00DC7CF3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9064DFCF2B1847EE00DC7CF3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9064DFD12B1849A800DC7CF3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		90B9416E2B14FFB6006CAE0F /* Reminders_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B941712B14FFB6006CAE0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90B941732B14FFB6006CAE0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		90B941752B14FFB6006CAE0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		90B941752B14FFB6006CAE0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		90B9417A2B14FFB9006CAE0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		90B9417D2B14FFB9006CAE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90B9417F2B14FFB9006CAE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB29405ED459DD5CD6A336DE /* Pods-Reminders_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reminders_UIKit.release.xcconfig"; path = "Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit.release.xcconfig"; sourceTree = "<group>"; };
 		F74C1CBC17539DE6E70D4447 /* Pods-Reminders_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reminders_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-Reminders_UIKit/Pods-Reminders_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +53,46 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9064DFC82B1844D900DC7CF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90B9417F2B14FFB9006CAE0F /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9064DFC92B1844E400DC7CF3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9064DFD12B1849A800DC7CF3 /* UIColor+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9064DFCA2B1844EA00DC7CF3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9064DFCD2B1845AD00DC7CF3 /* BaseViewController.swift */,
+				90B941752B14FFB6006CAE0F /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9064DFCB2B1844EF00DC7CF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9064DFCF2B1847EE00DC7CF3 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9064DFCC2B1844F600DC7CF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		90B941652B14FFB6006CAE0F = {
 			isa = PBXGroup;
 			children = (
@@ -72,10 +116,12 @@
 			children = (
 				90B941712B14FFB6006CAE0F /* AppDelegate.swift */,
 				90B941732B14FFB6006CAE0F /* SceneDelegate.swift */,
-				90B941752B14FFB6006CAE0F /* ViewController.swift */,
 				90B9417A2B14FFB9006CAE0F /* Assets.xcassets */,
-				90B9417C2B14FFB9006CAE0F /* LaunchScreen.storyboard */,
-				90B9417F2B14FFB9006CAE0F /* Info.plist */,
+				9064DFCC2B1844F600DC7CF3 /* Models */,
+				9064DFCB2B1844EF00DC7CF3 /* Views */,
+				9064DFCA2B1844EA00DC7CF3 /* Controllers */,
+				9064DFC92B1844E400DC7CF3 /* Helpers */,
+				9064DFC82B1844D900DC7CF3 /* Supporting Files */,
 			);
 			path = Reminders_UIKit;
 			sourceTree = "<group>";
@@ -148,7 +194,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90B9417E2B14FFB9006CAE0F /* LaunchScreen.storyboard in Resources */,
 				90B9417B2B14FFB9006CAE0F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,24 +247,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90B941762B14FFB6006CAE0F /* ViewController.swift in Sources */,
+				90B941762B14FFB6006CAE0F /* MainViewController.swift in Sources */,
+				9064DFCE2B1845AD00DC7CF3 /* BaseViewController.swift in Sources */,
 				90B941722B14FFB6006CAE0F /* AppDelegate.swift in Sources */,
+				9064DFD22B1849A800DC7CF3 /* UIColor+Extension.swift in Sources */,
+				9064DFD02B1847EE00DC7CF3 /* MainView.swift in Sources */,
 				90B941742B14FFB6006CAE0F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		90B9417C2B14FFB9006CAE0F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90B9417D2B14FFB9006CAE0F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		90B941802B14FFB9006CAE0F /* Debug */ = {
@@ -351,7 +388,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Reminders_UIKit/Info.plist;
+				INFOPLIST_FILE = "Reminders_UIKit/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -380,7 +417,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3V7X75S9T;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Reminders_UIKit/Info.plist;
+				INFOPLIST_FILE = "Reminders_UIKit/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
