@@ -137,6 +137,12 @@ class ReminderCell: UITableViewCell {
                 var reminder = reminderRelay.value
                 reminder.isCompleted.toggle()
                 reminderRelay.accept(reminder)
+                
+                if reminder.isCompleted {
+                    self.titleTextView.textColor = .systemGray
+                } else {
+                    self.titleTextView.textColor = .black
+                }
             }).disposed(by: disposeBag)
         
         titleTextView.rx.text.orEmpty
@@ -177,7 +183,7 @@ class ReminderCell: UITableViewCell {
     }
     
     func updateNotesTextView() {
-        if (notesTextView.text.isEmpty) {
+        if (notesTextView.text.isEmpty && !titleTextView.isFirstResponder) {
             notesTextView.isHidden = true
         } else {
             notesTextView.isHidden = false
