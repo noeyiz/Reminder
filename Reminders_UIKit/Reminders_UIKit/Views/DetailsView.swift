@@ -23,6 +23,12 @@ class DetailsView: UIView {
     
     var delegate: DetailsDelegate?
     
+    var priority: Reminder.Priority? {
+        didSet {
+            priorityMenuButton.configuration?.title = self.priority?.toString()
+        }
+    }
+    
     // MARK: UI
     
     let doneButton = UIBarButtonItem(title: "확인", style: .plain, target: nil, action: nil)
@@ -53,6 +59,36 @@ class DetailsView: UIView {
         $0.backgroundColor = .systemGray5
     }
     
+    let priorityStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 10
+        $0.backgroundColor = .systemBackground
+        $0.layer.cornerRadius = 15
+        $0.layer.masksToBounds = true
+        $0.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        $0.isLayoutMarginsRelativeArrangement = true
+    }
+    
+    let priorityImageView = UIImageView().then {
+        $0.image = UIImage(systemName: "exclamationmark.square.fill")
+        $0.tintColor = .systemRed
+    }
+    
+    let priorityLabel = UILabel().then {
+        $0.text = "우선 순위"
+        $0.font = UIFont.systemFont(ofSize: 15)
+    }
+    
+    let priorityMenuButton = UIButton().then {
+        $0.showsMenuAsPrimaryAction = true // 메뉴를 기본 동작으로
+        $0.configuration = UIButton.Configuration.plain()
+        $0.configuration?.image = UIImage(systemName: "chevron.up.chevron.down")
+        $0.configuration?.preferredSymbolConfigurationForImage = .init(pointSize: 15)
+        $0.configuration?.imagePadding = 5
+        $0.configuration?.imagePlacement = .trailing
+        $0.tintColor = .systemGray2
+    }
+    
     // MARK: Initializer
     
     override init(frame: CGRect) {
@@ -75,6 +111,10 @@ class DetailsView: UIView {
         detailStackView.addArrangedSubview(titleTextView)
         detailStackView.addArrangedSubview(separatorView)
         detailStackView.addArrangedSubview(notesTextView)
+        addSubview(priorityStackView)
+        priorityStackView.addArrangedSubview(priorityImageView)
+        priorityStackView.addArrangedSubview(priorityLabel)
+        priorityStackView.addArrangedSubview(priorityMenuButton)
         
         // 제약 사항 설정
         detailStackView.snp.makeConstraints {
@@ -84,6 +124,15 @@ class DetailsView: UIView {
         separatorView.snp.makeConstraints {
             $0.height.equalTo(1)
         }
+        
+        priorityStackView.snp.makeConstraints {
+            $0.top.equalTo(self.detailStackView.snp.bottom).offset(20)
+            $0.left.right.equalToSuperview().inset(20)
+        }
+        
+        priorityImageView.snp.makeConstraints {
+            $0.width.height.equalTo(35)
+        }
     }
     
     // MARK: Functions
@@ -92,6 +141,17 @@ class DetailsView: UIView {
         titleTextView.delegate = self
         notesTextView.delegate = self
         
+        // 메뉴 설정
+        let menuItems = Reminder.Priority.allCases.map { priority -> UIAction in
+            let title = "\(priority.toString())"
+            return UIAction(title: title, image: nil) { _ in
+                self.priority = priority
+            }
+        }
+        priorityMenuButton.menu = UIMenu(identifier: nil,
+                         options: .displayInline,
+                         children: menuItems)
+        
         doneButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 guard let reminderRelay = self?.reminder else { return }
@@ -99,6 +159,7 @@ class DetailsView: UIView {
                 var reminder = reminderRelay.value
                 reminder.title = self?.titleTextView.text ?? ""
                 reminder.notes = self?.notesTextView.text
+                reminder.priority = self?.priority ?? reminder.priority
                 reminderRelay.accept(reminder)
                 
                 self?.delegate?.didTapDoneButton()
@@ -112,14 +173,15 @@ class DetailsView: UIView {
         )
     }
     
-    func bind(reminderRelay: BehaviorRelay<Reminder>) {
-        reminder = reminderRelay
+    func bind(reminderRelay: BehaviorRelay<Reminder>?) {
+        guard let reminderRelay = reminderRelay else { return }
+        
+        reminder = reminderRelay // reference 기억
         
         reminderRelay.subscribe(onNext: { [weak self] reminder in
-            // title text view
             self?.titleTextView.text = reminder.title
-            // notes text view
             self?.notesTextView.text = reminder.notes
+            self?.priorityMenuButton.configuration?.title = reminder.priority.toString()
         }).disposed(by: disposeBag)
     }
     

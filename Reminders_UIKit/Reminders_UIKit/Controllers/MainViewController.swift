@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-protocol ReminderCellDelegate {
+protocol ReminderDelegate {
     func didTapDetailsButton(reminderRelay: BehaviorRelay<Reminder>)
 }
 
@@ -45,7 +45,6 @@ class MainViewController: BaseViewController<MainView> {
         
         baseView.menuButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                print("menu button tap")
                 for reminder in self!.reminderManager.reminders.value {
                     print("\(reminder.value)\n")
                 }
@@ -74,8 +73,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell")
                 as? ReminderCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.bind(reminderRelay: reminderManager.reminders.value[indexPath.row])
+        cell.disposeBag = DisposeBag()
         cell.delegate = self
+        cell.bind(reminderRelay: reminderManager.reminders.value[indexPath.row])
         return cell
     }
     
@@ -88,7 +88,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension MainViewController: ReminderCellDelegate {
+extension MainViewController: ReminderDelegate {
     
     func didTapDetailsButton(reminderRelay: BehaviorRelay<Reminder>) {
         let detailsViewController = DetailsViewController()

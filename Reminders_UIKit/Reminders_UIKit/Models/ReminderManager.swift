@@ -35,4 +35,12 @@ class ReminderManager {
         reminders.accept(updatedReminders)
     }
     
+    func deleteReminder(with removeReminder: BehaviorRelay<Reminder>) {
+        for (index, reminder) in reminders.value.enumerated() {
+            if reminder.value.id == removeReminder.value.id {
+                deleteReminder(at: index)
+            }
+        }
+    }
+    
 }
