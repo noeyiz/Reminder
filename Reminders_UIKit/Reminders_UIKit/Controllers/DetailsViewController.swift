@@ -31,7 +31,7 @@ class DetailsViewController: BaseViewController<DetailsView> {
     // MARK: Functions
     
     private func configureNavigationItem() {
-        self.navigationItem.title = "세부사항"
+        self.navigationItem.title = "Details"
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.rightBarButtonItem = baseView.doneButton
         self.view.backgroundColor = .tertiarySystemGroupedBackground

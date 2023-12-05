@@ -24,7 +24,7 @@ class MainView: UIView {
     let addReminderButton = UIButton().then {
         $0.configuration = UIButton.Configuration.plain()
         $0.configuration?.attributedTitle = .init(
-            "새로운 미리 알림",
+            "New Reminder",
             attributes: .init([.font: UIFont.systemFont(ofSize: 17, weight: .medium)])
         )
         $0.configuration?.image = UIImage(systemName: "plus.circle.fill")

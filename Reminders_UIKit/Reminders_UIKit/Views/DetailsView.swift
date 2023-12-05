@@ -31,7 +31,7 @@ class DetailsView: UIView {
     
     // MARK: UI
     
-    let doneButton = UIBarButtonItem(title: "확인", style: .plain, target: nil, action: nil)
+    let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: nil, action: nil)
     
     let detailStackView = UIStackView().then {
         $0.axis = .vertical
@@ -44,13 +44,13 @@ class DetailsView: UIView {
     }
     
     let titleTextView = UITextView().then {
-        $0.placeholder = "제목"
+        $0.placeholder = "Title"
         $0.isScrollEnabled = false
         $0.font = .systemFont(ofSize: 15)
     }
     
     let notesTextView = UITextView().then {
-        $0.placeholder = "메모"
+        $0.placeholder = "Notes"
         $0.isScrollEnabled = false
         $0.font = .systemFont(ofSize: 15)
     }
@@ -75,7 +75,7 @@ class DetailsView: UIView {
     }
     
     let priorityLabel = UILabel().then {
-        $0.text = "우선 순위"
+        $0.text = "Priority"
         $0.font = UIFont.systemFont(ofSize: 15)
     }
     

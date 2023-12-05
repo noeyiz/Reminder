@@ -33,8 +33,18 @@ class MainViewController: BaseViewController<MainView> {
     // MARK: Functions
     
     private func configureNavigationItem() {
-        self.navigationItem.title = "미리 알림"
-        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationItem.title = "Reminders"
+        if let roundedTitleDescriptor = UIFontDescriptor
+          .preferredFontDescriptor(withTextStyle: .largeTitle)
+          .withDesign(.rounded)?
+          .withSymbolicTraits(.traitBold) {
+            self.navigationController? // Assumes a navigationController exists on the current view
+              .navigationBar
+              .largeTitleTextAttributes = [
+                .font: UIFont(descriptor: roundedTitleDescriptor, size: 0), // Note that 'size: 0' maintains the system size class
+                .foregroundColor: UIColor.systemPink
+              ]
+        }
         self.navigationItem.rightBarButtonItem = self.baseView.menuButton
         self.view.backgroundColor = .systemBackground
     }

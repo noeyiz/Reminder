@@ -56,7 +56,7 @@ class ReminderCell: UITableViewCell {
         $0.isScrollEnabled = false
         $0.textColor = .systemGray
         $0.font = .systemFont(ofSize: 12)
-        $0.placeholder = "메모 추가"
+        $0.placeholder = "Add note"
     }
     
     // MARK: Initializer
@@ -214,7 +214,7 @@ extension ReminderCell: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty && textView.placeholder == "" { // title 텍스트뷰는 항상 비어있지 않도록
-            textView.text = "새로운 미리 알림"
+            textView.text = "New Reminder"
         }
         if notesTextView.text.isEmpty {
             notesTextView.isHidden = true
@@ -227,7 +227,7 @@ extension ReminderCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" && textView.placeholder == "" { // title 텍스트뷰에서 엔터 감지
             if textView.text.isEmpty {
-                textView.text = "새로운 미리 알림"
+                textView.text = "New Reminder"
             }
             textView.resignFirstResponder()
         }
