@@ -20,15 +20,15 @@ extension Reminder {
     enum Priority: CaseIterable {
         case none
         case low
-        case middle
+        case midium
         case high
         
         func toString() -> String {
             switch (self) {
-            case .none: return "없음"
-            case .low: return "낮음"
-            case .middle: return "중간"
-            case .high: return "높음"
+            case .none: return "None"
+            case .low: return "Low"
+            case .midium: return "Midium"
+            case .high: return "High"
             }
         }
         
@@ -36,7 +36,7 @@ extension Reminder {
             switch (self) {
             case .none: return ""
             case .low: return "!"
-            case .middle: return "!!"
+            case .midium: return "!!"
             case .high: return "!!!"
             }
         }
