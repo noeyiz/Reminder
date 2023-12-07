@@ -38,11 +38,11 @@ class MainViewController: BaseViewController<MainView> {
           .preferredFontDescriptor(withTextStyle: .largeTitle)
           .withDesign(.rounded)?
           .withSymbolicTraits(.traitBold) {
-            self.navigationController? // Assumes a navigationController exists on the current view
+            self.navigationController?
               .navigationBar
               .largeTitleTextAttributes = [
-                .font: UIFont(descriptor: roundedTitleDescriptor, size: 0), // Note that 'size: 0' maintains the system size class
-                .foregroundColor: UIColor.systemPink
+                .font: UIFont(descriptor: roundedTitleDescriptor, size: 0),
+                .foregroundColor: UIColor.reminders
               ]
         }
         self.navigationItem.rightBarButtonItem = self.baseView.menuButton
@@ -54,18 +54,18 @@ class MainViewController: BaseViewController<MainView> {
         baseView.remindersTableView.dataSource = self
         
         baseView.menuButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                for reminder in self!.reminderManager.reminders.value {
+            .subscribe(onNext: {
+                for reminder in self.reminderManager.reminders.value {
                     print("\(reminder.value)\n")
                 }
                 print("\n\n")
             }).disposed(by: disposeBag)
         
         baseView.addReminderButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.reminderManager.addReminder()
-                self?.baseView.remindersTableView.reloadData()
-                guard let inputCell = self?.baseView.remindersTableView.visibleCells.last as? ReminderCell
+            .subscribe(onNext: {
+                self.reminderManager.addReminder()
+                self.baseView.remindersTableView.reloadData()
+                guard let inputCell = self.baseView.remindersTableView.visibleCells.last as? ReminderCell
                 else { return }
                 inputCell.titleTextView.becomeFirstResponder()
             }).disposed(by: disposeBag)
