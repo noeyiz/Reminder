@@ -117,18 +117,18 @@ class ReminderCell: UITableViewCell {
         guard let disposeBag = self.disposeBag else { return }
         
         // Model -> View
-        reminderRelay.subscribe(onNext: { [weak self] reminder in
+        reminderRelay.subscribe(onNext: { reminder in
             if (reminder.isCompleted) {
-                self?.completeButton.configuration?.image = UIImage(systemName: "circle.inset.filled")
-                self?.completeButton.tintColor = .reminders
+                self.completeButton.configuration?.image = UIImage(systemName: "circle.inset.filled")
+                self.completeButton.tintColor = .reminders
             } else {
-                self?.completeButton.configuration?.image = UIImage(systemName: "circle")
-                self?.completeButton.tintColor = .systemGray3
+                self.completeButton.configuration?.image = UIImage(systemName: "circle")
+                self.completeButton.tintColor = .systemGray3
             }
-            self?.priorityLabel.text = reminder.priority.toMark()
-            self?.titleTextView.text = reminder.title
-            self?.notesTextView.text = reminder.notes ?? ""
-            self?.updateNotesTextView()
+            self.priorityLabel.text = reminder.priority.toMark()
+            self.titleTextView.text = reminder.title
+            self.notesTextView.text = reminder.notes ?? ""
+            self.updateNotesTextView()
         }).disposed(by: disposeBag)
         
         // View -> Model
@@ -163,14 +163,14 @@ class ReminderCell: UITableViewCell {
         
         // action
         detailsButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                guard let reminder = self?.reminder else { return }
-                self?.endEditing(true)
-                if ((self?.notesTextView.text.isEmpty) != nil) {
-                    self?.notesTextView.isHidden = true
-                    self?.updateTableView()
+            .subscribe(onNext: {
+                guard let reminder = self.reminder else { return }
+                self.endEditing(true)
+                if self.notesTextView.text.isEmpty {
+                    self.notesTextView.isHidden = true
+                    self.updateTableView()
                 }
-                self?.delegate?.didTapDetailsButton(reminderRelay: reminder)
+                self.delegate?.didTapDetailsButton(reminderRelay: reminder)
             }).disposed(by: disposeBag)
     }
     

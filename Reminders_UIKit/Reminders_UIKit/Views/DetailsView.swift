@@ -153,16 +153,16 @@ class DetailsView: UIView {
                          children: menuItems)
         
         doneButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                guard let reminderRelay = self?.reminder else { return }
+            .subscribe(onNext: {
+                guard let reminderRelay = self.reminder else { return }
                 
                 var reminder = reminderRelay.value
-                reminder.title = self?.titleTextView.text ?? ""
-                reminder.notes = self?.notesTextView.text
-                reminder.priority = self?.priority ?? reminder.priority
+                reminder.title = self.titleTextView.text ?? ""
+                reminder.notes = self.notesTextView.text
+                reminder.priority = self.priority ?? reminder.priority
                 reminderRelay.accept(reminder)
                 
-                self?.delegate?.didTapDoneButton()
+                self.delegate?.didTapDoneButton()
             }).disposed(by: disposeBag)
         
         self.addGestureRecognizer( // 테이블 뷰 스크롤을 위해 터치가 막혀있어서 제스처 사용
@@ -178,10 +178,10 @@ class DetailsView: UIView {
         
         reminder = reminderRelay // reference 기억
         
-        reminderRelay.subscribe(onNext: { [weak self] reminder in
-            self?.titleTextView.text = reminder.title
-            self?.notesTextView.text = reminder.notes
-            self?.priorityMenuButton.configuration?.title = reminder.priority.toString()
+        reminderRelay.subscribe(onNext: { reminder in
+            self.titleTextView.text = reminder.title
+            self.notesTextView.text = reminder.notes
+            self.priorityMenuButton.configuration?.title = reminder.priority.toString()
         }).disposed(by: disposeBag)
     }
     
